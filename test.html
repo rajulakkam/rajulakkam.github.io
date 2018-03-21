@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myapp" >
+<div ng-controller="postserviceCtrl">
+    <form>
+
+
+					<span class="input">
+					<input ng-model="s_name" class="input_field" type="text">
+						<label class="input_label">
+						<span class="input__label-content">Name</span>
+					</label>
+					</span></br>
+
+        <span class="input">
+					<input ng-model="s_email" class="input_field" type="email">
+						<label class="input_label">
+						<span class="input__label-content">Email</span>
+					</label>
+					</span></br>
+
+        <span class="input">
+					<input  class="input_field" type="text" ng-model="s_mobile">
+						<label class="input_label">
+						<span class="input__label-content">Mobile number</span>
+					</label>
+					</span></br>
+
+        <span class="input">
+					<input  class="input_field" type="text" ng-model="s_batch">
+						<label class="input_label">
+						<span class="input__label-content">batch</span>
+					</label>
+					</span></br>
+
+        <span class="input">
+					<input class="input_field" type="text" ng-model="s_actual_fee">
+						<label class="input_label">
+						<span class="input__label-content">Actual fee</span>
+					</label>
+					</span></br>
+        <span class="input">
+					<input class="input_field" type="text" ng-model="s_fee_paid">
+						<label class="input_label">
+						<span class="input__label-content">paid fee</span>
+					</label>
+					</span></br>
+        <span class="input">
+					<input class="input_field" type="text" ng-model="s_status">
+						<label class="input_label">
+						<span class="input__label-content">Status</span>
+					</label></br>
+					</span>
+		<input type="button" value="Send" ng-click="postdata(s_name, s_mobile, s_status,  s_batch, s_actual_fee, s_fee_paid,s_email )" />
+
+		<p>Output Message : {{msg}}</p></br>
+
+
+
+	</form>
+</div>
+<div ng-controller="mycontroller">
+<table class="table" >
+    <thead>
+    <tr>
+        <th>Firstname</th>
+        <th>Email</th>
+        <th>mobile No.</th>
+        <th>Batch</th>
+        <th>Actual Fee</th>
+        <th>paid Fee</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="student in students">
+
+        <td>{{student.s_name}}</td>
+        <td>{{student.s_email}}</td>
+        <td>{{student.s_mobile}}</td>
+        <td>{{student.s_batch}}</td>
+        <td>{{student.s_actual_fee}}</td>
+        <td>{{student.s_fee_paid}}</td>
+        <td>{{student.s_status}}</td>
+    </tr>
+
+    </tbody>
+</table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<script>
+    var app=angular.module("myapp",[]);
+    app.controller("mycontroller",function ($scope,$http,$log) {
+        $http({
+
+            method: 'GET',
+            url: 'http://admin.lifeboat.co.in/students'
+        })
+            .then(function (response) {
+                $scope.students = response.data.students;
+
+
+            }, function (reason) {
+                $scope.error = reason.data;
+                $log.info(reason);
+            })
+    });
+        app.controller('postserviceCtrl', function ($scope, $http,$log) {
+            $scope.s_name = null;
+            $scope.s_fee_paid = null;
+			$scope.s_actual_fee=null;
+            $scope.s_mobile = null;
+            $scope.s_batch= null;
+            $scope.s_status = null;
+			$scope.s_email=null;
+            $scope.postdata = function (s_name, s_mobile, s_status,  s_batch, s_actual_fee, s_fee_paid,s_email) {
+
+                var data = {
+                    s_name: s_name,
+                    s_mobile:s_mobile,
+                    s_email:s_email,
+                    s_status:s_status,
+					s_batch:s_batch,
+					s_actual_fee:s_actual_fee,
+                    s_fee_paid:s_fee_paid,
+
+                };
+                $log.info(data);
+                $http.post('http://admin.lifeboat.co.in/students',JSON.stringify(data)).then(function (response) {
+
+                    if (response.data){
+                    //$log.info(response.data.students);
+                        $scope.msg = "Post Data Submitted Successfully!";
+
+               	 }
+               	 else
+               	     {
+
+                        $scope.msg = "Service not Exists";
+
+
+                    }
+
+
+                });
+
+            };
+
+        });
+
+</script>
+
+</body>
+</html>

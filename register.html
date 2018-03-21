@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Udema a modern educational site template">
+    <meta name="author" content="Ansonika">
+    <title>Lifeboat</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- BASE CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+	<link href="css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+	
+	<!-- SPECIFIC CSS -->
+	<link href="css/skins/square/grey.css" rel="stylesheet">
+	<link href="css/wizard.css" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+	<style>
+		#admission_bg {
+		background: linear-gradient(45deg, red, yellow);
+		
+		}
+	</style>
+
+</head>
+
+<body id="admission_bg" >
+	
+	
+	<div id="preloader">
+	
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+	<button class="btn-link"onclick="goBack()">Go Back</button>
+	
+	<div id="form_container" class="clearfix">
+		
+		<div id="wizard_container">
+			
+			<!-- /top-wizard -->
+			<form name="example-1" id="wrapped" method="POST">
+				<input id="website" name="website" type="text" value="">
+				<!-- Leave for security protection, read docs for details -->
+				
+				<div id="login">
+		<aside>
+			<figure>
+				<a href="index.html"><img src="img/tlogo.png" width="149" height="42" data-retina="true" alt=""></a>
+			</figure>
+			<form autocomplete="off">
+				<div class="form-group">
+
+					<span class="input">
+					<input id="fname" class="input_field" type="text">
+						<label class="input_label">
+						<span class="input__label-content">Your Name</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input id="lname" class="input_field" type="text">
+						<label class="input_label">
+						<span class="input__label-content">Your Last Name</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input id="email" class="input_field" type="email">
+						<label class="input_label">
+						<span class="input__label-content">Your Email</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input  class="input_field" type="password" id="password1">
+						<label class="input_label">
+						<span class="input__label-content">Your password</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input class="input_field" type="password" id="password2">
+						<label class="input_label">
+						<span class="input__label-content">Confirm password</span>
+					</label>
+					</span>
+					
+					<div id="pass-info" class="clearfix"></div>
+				</div>
+				<a  onclick="required()" href="#0" class="btn_1 rounded full-width add_top_30 ">Register to Lifeboat</a>
+				<div class="text-center add_top_10">Already have an acccount? <strong><a href="login.html">Sign In</a></strong></div>
+			</form>
+			<div class="copy">© 2018 Lifeboat</div>
+		</aside>
+	</div>
+				
+				
+				<!-- /middle-wizard -->
+				
+				<!-- /bottom-wizard -->
+			</form>
+		</div>
+		<!-- /Wizard container -->
+	</div>
+	<!-- /Form_container -->
+
+	<!-- Modal terms -->
+	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn_1" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/common_scripts.js"></script>
+    <script src="js/main.js"></script>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="js/jquery-ui-1.8.22.min.js"></script>
+	<script src="js/jquery.wizard.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/admission_func.js"></script>
+	<script>
+	function goBack() {
+    window.history.back();
+}
+			function required()
+{
+ var fname = document.getElementById('fname').value;
+ 
+ var lname = document.getElementById('lname').value;
+ var email = document.getElementById('email').value;
+ var password1 = document.getElementById('password1').value;
+ var password2 = document.getElementById('password2').value;
+ 
+ 
+
+ 
+   if(fname.length === 0)
+   {
+    alert("Please input a first name");
+   }
+   else if(lname.length === 0)
+   {
+    alert("Please input a last name");
+   }
+   else if(email.length === 0)
+   {
+    alert("Please enter valid email");
+   }
+   else if(password1.length !== password2.length)
+   {
+    alert("password not matched");
+   }
+   
+  }
+
+	
+	</script>
+  
+</body>
+
+
+</html>
